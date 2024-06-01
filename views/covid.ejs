@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Stats</title>
+</head>
+<body>
+    <%- include ("./partials/header.ejs")%>
+    <h1>COVID-19</h1>
+    <form action="/post-covid" method="post">
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="country">
+            <label for="floatingInput">Country</label>
+            <br>
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+    <% if (locals.Cases){%>
+        <h4><b>Country :</b> <%=locals.Country_1%> </h4>
+        <h4><b>Population : </b><%= locals.Population%></h4>
+        <h4><b>Cases : </b><%= locals.Cases%> </h4>
+        <h4><b>Deaths :</b> <%= locals.Deaths%> </h4>
+        <h4><b>Tests : </b><%= locals.Tests%> </h4>
+    <%}%>
+    <%- include ("./partials/footer.ejs")%>
+</body>
+</html>

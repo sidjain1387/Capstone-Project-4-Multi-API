@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Exchange Rate</title>
+  </head>
+  <body>
+    <%- include("./partials/header.ejs")%> 
+    <h4>The Currency available are: <br></h4>
+        <h5><%=locals.list_real%></h5>
+    
+    <form action="/exchange" method="post">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Currency From</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" name="cfrom">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Currency To</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" name="cto">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword2" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="exampleInputPassword2" name="amount">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <%if (locals.value) {%>
+        <h1><%=locals.count_real%> <%=locals.from_real%> = <%= locals.value * locals.count_real%> <%=locals.to_real%></h1>
+    <%}%>
+    <%- include("./partials/footer.ejs")%>
+  </body>
+</html>

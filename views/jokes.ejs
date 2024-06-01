@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("delivery").style.display = "block";
+            }, 2000);
+        });
+    </script>
+    <title>Jokes</title>
+</head>
+<body>
+    <%- include ("./partials/header.ejs")%>
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">Jokes</h1>
+        <div class="col-lg-6 mx-auto">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="/joke"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Click Here</button></a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <% if (locals.org_setup){%>
+            <h3 id="setup" class=""><%=locals.org_setup%></h3>
+            <h5 id="delivery" class="fw-bold text-body-emphasis" style="display:none;"><%=locals.org_delivery%></h5>
+        <%}%>
+    </div>
+    <%- include ("./partials/footer.ejs")%>
+</body>
+</html>
